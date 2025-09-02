@@ -29,23 +29,29 @@ export default function TerminalBox() {
   };
 
   return (
-    <div className="relative max-w-4xl mx-auto">
-      <div className="text-center mb-8">
-        <h2 className="text-4xl md:text-5xl font-bold text-amber-600 mb-2">
+    <div className="relative max-w-4xl mx-auto px-4">
+      {/* Heading */}
+      <div className="text-center mb-10">
+        <h2 className="text-4xl md:text-5xl font-bold text-white mb-3">
           Installation
         </h2>
+        <p className="text-gray-400 text-lg">
+          Get started with a single command — choose your favorite package
+          manager.
+        </p>
       </div>
 
-      <div className="flex items-center mb-4">
-        <div className="flex gap-1">
+      {/* Package Manager Switch */}
+      <div className="flex items-center justify-center mb-6">
+        <div className="flex gap-2 bg-white/10 backdrop-blur-sm rounded-xl p-1 border border-white/10">
           {(["npm", "pnpm", "yarn"] as const).map((pm) => (
             <button
               key={pm}
               onClick={() => setPackageManager(pm)}
-              className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
+              className={`px-5 py-2 text-sm font-mono rounded-lg transition-all duration-200 ${
                 packageManager === pm
-                  ? "bg-amber-800 text-white shadow-lg font-mono font-semibold"
-                  : "bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm font-mono font-semibold"
+                  ? "bg-white text-black font-semibold shadow-md"
+                  : "text-gray-300 hover:text-white hover:bg-white/10"
               }`}
             >
               {pm}
@@ -54,32 +60,35 @@ export default function TerminalBox() {
         </div>
       </div>
 
-      <div className="bg-gradient-to-br from-gray-900 to-black rounded-2xl shadow-2xl border border-amber-700/20 overflow-hidden backdrop-blur-sm">
-        {/* Terminal header */}
-        <div className="flex items-center gap-2 px-6 py-4 bg-gradient-to-r from-gray-800 to-gray-900 border-b border-amber-700/20">
+      {/* Terminal Box */}
+      <div className="bg-gradient-to-br from-gray-900 to-black rounded-2xl shadow-2xl border border-white/10 overflow-hidden">
+        {/* Terminal Header */}
+        <div className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gray-800 to-gray-900 border-b border-white/10">
           <div className="flex gap-2">
-            <div className="w-3 h-3 bg-red-500 rounded-full shadow-sm"></div>
-            <div className="w-3 h-3 bg-yellow-500 rounded-full shadow-sm"></div>
-            <div className="w-3 h-3 bg-green-500 rounded-full shadow-sm"></div>
+            <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+            <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
           </div>
           <div className="flex-1 text-center">
-            <span className="text-amber-200 text-sm font-mono">Terminal</span>
+            <span className="text-gray-300 text-sm font-mono">Terminal</span>
           </div>
         </div>
 
-        <div className="p-8 font-mono text-sm">
-          <div className="text-amber-400 mb-4">
-            <span className="text-amber-600">huzfm@devark:~$</span>
+        {/* Terminal Body */}
+        <div className="p-8 font-mono text-base">
+          <div className="text-gray-400 mb-3">
+            <span className="text-green-400">huzfm@devark</span>
+            <span className="text-white">:~$</span>
           </div>
 
-          <div className="bg-gray-800/50 rounded-lg p-4 border border-amber-700/20 flex items-center justify-between">
-            <div className="text-white text-base">
-              <span className="text-amber-500">$</span>{" "}
+          <div className="bg-gray-800/70 rounded-lg px-5 py-3 border border-white/10 flex items-center justify-between">
+            <div className="text-white tracking-tight">
+              <span className="text-gray-500">$</span>{" "}
               {getCommand(packageManager)}
             </div>
             <button
               onClick={copyToClipboard}
-              className="flex items-center gap-2 px-3 py-1.5 text-sm text-amber-200 hover:text-white transition-all duration-200 rounded-lg hover:bg-white/10 backdrop-blur-sm ml-4"
+              className="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-300 hover:text-white transition-all duration-200 rounded-lg hover:bg-white/10"
               title="Copy installation command"
             >
               {copied ? (
@@ -87,13 +96,26 @@ export default function TerminalBox() {
               ) : (
                 <Copy className="w-4 h-4" />
               )}
+              <span className="hidden sm:inline">
+                {copied ? "Copied!" : "Copy"}
+              </span>
             </button>
           </div>
 
-          <div className="mt-6 space-y-2 text-amber-200/80">
-            <div>🚀 Fast installation</div>
-            <div>⚡ Zero configuration</div>
-            <div>🔧 Ready to use</div>
+          {/* Highlights */}
+          <div className="mt-6 flex flex-wrap justify-center items-center gap-6 text-gray-400">
+            <div className="flex items-center gap-2">
+              <span className="text-white">•</span>
+              Fast installation
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-white">•</span>
+              Zero configuration
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-white">•</span>
+              Ready to use
+            </div>
           </div>
         </div>
       </div>
