@@ -8,10 +8,9 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className=" bg-black px-25">
+    <header className="bg-black lg:px-25 md:px-20:sm:px-0">
       {/* Grid background lines */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:35px_35px]"></div>
-
       <div className="container mx-auto px-4 py-4 flex items-center justify-between relative z-10">
         {/* Logo */}
         <div className="flex items-center gap-2">
@@ -57,7 +56,6 @@ export default function Header() {
           <Menu className="w-6 h-6 text-white" />
         </button>
       </div>
-
       {/* Mobile Menu */}
       {menuOpen && (
         <nav className="md:hidden bg-black/95 border-t border-white/10 px-4 py-4 flex flex-col gap-4">
