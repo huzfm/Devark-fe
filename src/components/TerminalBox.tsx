@@ -35,7 +35,7 @@ export default function TerminalBox() {
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-3">
           Installation
         </h2>
-        <p className="text-gray-400 text-lg">
+        <p className="text-gray-400 text-lg font-mono">
           Get started with a single command — choose your favorite package
           manager.
         </p>
@@ -43,7 +43,7 @@ export default function TerminalBox() {
 
       {/* Package Manager Switch */}
       <div className="flex items-center justify-center mb-6">
-        <div className="flex gap-2 bg-white/10 backdrop-blur-sm rounded-xl p-1 border border-white/10">
+        <div className="flex gap-2 bg-white/10 backdrop-blur-sm rounded-xl p-1 border border-white/10 font-semibold">
           {(["npm", "pnpm", "yarn"] as const).map((pm) => (
             <button
               key={pm}

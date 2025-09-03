@@ -4,6 +4,7 @@ import HeroSection from "@/components/HeroSection";
 import ComponentsSection from "@/components/ComponentsSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
+import SuggestionForm from "@/components/SuggestionForm";
 
 export default function HomePage() {
   return (
@@ -12,6 +13,7 @@ export default function HomePage() {
       <HeroSection />
       <ComponentsSection />
       <CTASection />
+      <SuggestionForm />
       <Footer />
     </>
   );

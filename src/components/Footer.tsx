@@ -10,15 +10,18 @@ const XIcon = ({ className }: { className?: string }) => (
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-amber-900 via-orange-900 to-amber-800 border-t border-amber-700/20">
-      <div className="max-w-6xl mx-auto px-4 py-12">
+    <footer className="relative bg-black overflow-hidden">
+      {/* Grid background */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:35px_35px]" />
+
+      <div className="max-w-6xl mx-auto px-4 py-12 relative z-10">
         <div className="flex flex-col items-center space-y-6">
           {/* Social Links */}
           <div className="flex items-center space-x-6">
             <Link
               href="https://linkedin.com/in/huzfm"
               target="_blank"
-              className="p-2 text-amber-300 hover:text-blue-400 hover:bg-amber-800/50 rounded-lg transition-all duration-200"
+              className="p-2 text-white/70 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-200"
             >
               <Linkedin className="w-5 h-5" />
             </Link>
@@ -26,7 +29,7 @@ export default function Footer() {
             <Link
               href="https://github.com/huzfm"
               target="_blank"
-              className="p-2 text-amber-300 hover:text-amber-100 hover:bg-amber-800/50 rounded-lg transition-all duration-200"
+              className="p-2 text-white/70 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-200"
             >
               <Github className="w-5 h-5" />
             </Link>
@@ -34,14 +37,15 @@ export default function Footer() {
             <Link
               href="https://x.com/huzfm"
               target="_blank"
-              className="p-2 text-amber-300 hover:text-blue-400 hover:bg-amber-800/50 rounded-lg transition-all duration-200"
+              className="p-2 text-white/70 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-200"
             >
               <XIcon className="w-5 h-5" />
             </Link>
+
             <Link
-              href="https://x.com/huzfm"
+              href="mailto:huzfm@example.com"
               target="_blank"
-              className="p-2 text-amber-300 hover:text- hover:bg-amber-800/50 rounded-lg transition-all duration-200"
+              className="p-2 text-white/70 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-200"
             >
               <Mail className="w-5 h-5" />
             </Link>
@@ -49,12 +53,12 @@ export default function Footer() {
 
           {/* Attribution */}
           <div className="text-center">
-            <p className="text-amber-200 text-sm bg-amber-800/30 backdrop-blur-sm border border-amber-700/20 px-6 py-3 rounded-full shadow-lg shadow-amber-900/50 hover:shadow-xl hover:shadow-amber-900/60 transition-all duration-300">
+            <p className="text-white/70 text-sm bg-white/5 backdrop-blur-sm border border-white/10 px-6 py-3 rounded-full shadow-lg shadow-black/50 hover:shadow-xl transition-all duration-300">
               Built by{" "}
               <a
                 href="http://huzfm.vercel.app"
                 target="_blank"
-                className="text-amber-100 hover:text-orange-300 font-medium transition-colors duration-200"
+                className="text-white hover:text-gray-300 font-medium transition-colors duration-200"
                 rel="noreferrer"
               >
                 huzfm
@@ -63,13 +67,11 @@ export default function Footer() {
           </div>
 
           {/* Divider */}
-          <div className="w-full max-w-xs h-px bg-gradient-to-r from-transparent via-amber-600/50 to-transparent"></div>
+          <div className="w-full max-w-xs h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
 
           {/* Copyright */}
           <div className="text-center">
-            <p className="text-amber-300/70 text-xs">
-              © 2025 All rights reserved
-            </p>
+            <p className="text-white/50 text-xs">© 2025 All rights reserved</p>
           </div>
         </div>
       </div>
