@@ -83,7 +83,7 @@ export default function Header() {
           <Button
             variant="outline"
             size="sm"
-            className="border-2 border-white/30 text-white  font-mono text-sm flex items-center gap-2 w-fit transition-all duration-300"
+            className="text-white  font-mono text-sm flex items-center gap-2 w-fit transition-all duration-300 bg-transparent"
           >
             <Github className="w-4 h-4" />
             GitHub
