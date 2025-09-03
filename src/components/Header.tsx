@@ -60,13 +60,6 @@ export default function Header() {
       {menuOpen && (
         <nav className="md:hidden bg-black/95 border-t border-white/10 px-4 py-4 flex flex-col gap-4">
           <Link
-            href="#features"
-            className="font-mono text-white font-semibold hover:text-gray-300 transition-colors duration-200"
-            onClick={() => setMenuOpen(false)}
-          >
-            Features
-          </Link>
-          <Link
             href="#components"
             className="font-mono text-white font-semibold hover:text-gray-300 transition-colors duration-200"
             onClick={() => setMenuOpen(false)}
