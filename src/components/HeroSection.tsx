@@ -48,7 +48,7 @@ export default function HeroSection() {
           </div>
 
           {/* Features */}
-          <div className="flex flex-col sm:flex-row gap-4 text-sm text-gray-300">
+          <div className="flex flex-col sm:flex-row gap-4 text-sm text-gray-100 font-extrabold">
             {["Zero Config", "Production Ready", "Developer First"].map(
               (f, i) => (
                 <div key={i} className="flex items-center gap-2">

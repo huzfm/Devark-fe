@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Copy, Check } from "lucide-react";
+import { motion } from "framer-motion"; // 👈 smooth animations
 
 export default function TerminalBox() {
   const [packageManager, setPackageManager] = useState<"npm" | "pnpm" | "yarn">(
@@ -43,18 +44,29 @@ export default function TerminalBox() {
 
       {/* Package Manager Switch */}
       <div className="flex items-center justify-center mb-6">
-        <div className="flex gap-2 bg-white/10 backdrop-blur-sm rounded-xl p-1 border border-white/10 font-semibold">
+        <div className="relative flex gap-2 bg-white/10 backdrop-blur-sm rounded-xl p-1 border border-white/10 font-semibold">
           {(["npm", "pnpm", "yarn"] as const).map((pm) => (
             <button
               key={pm}
               onClick={() => setPackageManager(pm)}
-              className={`px-5 py-2 text-sm font-mono rounded-lg transition-all duration-200 ${
+              className={`relative px-5 py-2 text-sm font-mono rounded-lg transition-all duration-200 ${
                 packageManager === pm
-                  ? "bg-white text-black font-semibold shadow-md"
-                  : "text-gray-300 hover:text-white hover:bg-white/10"
+                  ? "text-black font-semibold"
+                  : "text-gray-300 hover:text-white"
               }`}
             >
-              {pm}
+              {packageManager === pm && (
+                <motion.div
+                  layoutId="activePM"
+                  className="absolute inset-0 bg-white rounded-lg shadow-md"
+                  transition={{
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 25,
+                  }}
+                />
+              )}
+              <span className="relative z-10">{pm}</span>
             </button>
           ))}
         </div>
@@ -81,7 +93,13 @@ export default function TerminalBox() {
             <span className="text-white">:~$</span>
           </div>
 
-          <div className="bg-gray-800/70 rounded-lg px-5 py-3 border border-white/10 flex items-center justify-between">
+          <motion.div
+            key={packageManager}
+            initial={{ opacity: 0, y: 5 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.25 }}
+            className="bg-gray-800/70 rounded-lg px-5 py-3 border border-white/10 flex items-center justify-between"
+          >
             <div className="text-white tracking-tight">
               <span className="text-gray-500">$</span>{" "}
               {getCommand(packageManager)}
@@ -100,7 +118,7 @@ export default function TerminalBox() {
                 {copied ? "Copied!" : "Copy"}
               </span>
             </button>
-          </div>
+          </motion.div>
 
           {/* Highlights */}
           <div className="mt-6 flex flex-wrap justify-center items-center gap-6 text-gray-400">

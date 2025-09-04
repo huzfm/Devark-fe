@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Zap, Github, Menu } from "lucide-react";
 
@@ -8,9 +7,10 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="bg-black lg:px-25 md:px-20:sm:px-0">
+    <header className="bg-black lg:px-25 md:px-20 sm:px-0 relative">
       {/* Grid background lines */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:35px_35px]"></div>
+
       <div className="container mx-auto px-4 py-4 flex items-center justify-between relative z-10">
         {/* Logo */}
         <div className="flex items-center gap-2">
@@ -30,21 +30,23 @@ export default function Header() {
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
           </Link>
           <Link
-            href="#docs"
+            href="https://github.com/huzfm/Devark/tree/master/documentation"
+            target="_blank"
             className="font-mono text-white font-semibold hover:text-gray-300 transition-colors duration-200 relative group"
           >
             Docs
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
           </Link>
 
-          <Button
-            variant="outline"
-            size="sm"
-            className="group bg-black text-white  font-mono text-sm flex items-center gap-2 border-0"
+          {/* GitHub Button (desktop) */}
+          <Link
+            href="https://github.com/huzfm/Devark"
+            target="_blank"
+            className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-mono font-bold bg-black text-white border border-white/10 hover:bg-white/10 transition-all duration-300"
           >
-            <Github className="w-4 h-4 group-hover:rotate-12 transition-transform duration-300" />
-            <Link href="https://github.com/huzfm/Devark">GitHub</Link>
-          </Button>
+            <Github className="w-4 h-4" />
+            GitHub
+          </Link>
         </nav>
 
         {/* Mobile Hamburger */}
@@ -56,6 +58,7 @@ export default function Header() {
           <Menu className="w-6 h-6 text-white" />
         </button>
       </div>
+
       {/* Mobile Menu */}
       {menuOpen && (
         <nav className="md:hidden bg-black/95 border-t border-white/10 px-4 py-4 flex flex-col gap-4">
@@ -67,20 +70,24 @@ export default function Header() {
             Components
           </Link>
           <Link
-            href="#docs"
+            href="https://github.com/huzfm/Devark/tree/master/documentation"
+            target="_blank"
             className="font-mono text-white font-semibold hover:text-gray-300 transition-colors duration-200"
             onClick={() => setMenuOpen(false)}
           >
             Docs
           </Link>
-          <Button
-            variant="outline"
-            size="sm"
-            className="text-white  font-mono text-sm flex items-center gap-2 w-fit transition-all duration-300 bg-transparent"
+
+          {/* GitHub Button (mobile) */}
+          <Link
+            href="https://github.com/huzfm/Devark"
+            target="_blank"
+            className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-mono text-white border border-white/10 hover:bg-white/10 transition-all duration-300 w-fit"
+            onClick={() => setMenuOpen(false)}
           >
             <Github className="w-4 h-4" />
             GitHub
-          </Button>
+          </Link>
         </nav>
       )}
     </header>
