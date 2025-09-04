@@ -77,6 +77,7 @@ export default function HeroSection() {
               loop
               muted
               playsInline
+              poster="/poster.png"
               className="w-full rounded-xl shadow-lg"
             >
               <source src="/demo.mp4" type="video/mp4" />
