@@ -3,7 +3,6 @@
 import TerminalBox from "./TerminalBox";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap } from "lucide-react";
-import Image from "next/image";
 
 export default function HeroSection() {
   return (
@@ -70,15 +69,18 @@ export default function HeroSection() {
         </div>
 
         {/* RIGHT - Demo */}
-        <div className="relative w-full h-[250px] sm:h-[320px] md:h-[400px] lg:h-[500px] rounded-2xl overflow-hidden ">
+
+        <div className="relative w-full h-[250px] sm:h-[320px] md:h-[400px] lg:h-[500px] rounded-2xl overflow-hidden pr-3 sm:pr-0">
           <div className="relative w-full h-full flex items-center justify-center">
-            <Image
-              src="/test.jpg"
-              alt="Backend Infrastructure Window"
-              fill // ✅ auto-scale in container
-              className="object-contain drop-shadow-2xl p-4 sm:p-6 md:p-8"
-              priority
-            />
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full rounded-xl shadow-lg"
+            >
+              <source src="/demo.mp4" type="video/mp4" />
+            </video>
           </div>
         </div>
       </div>
