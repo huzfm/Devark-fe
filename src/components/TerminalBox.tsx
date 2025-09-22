@@ -12,9 +12,9 @@ export default function TerminalBox() {
 
   const getCommand = (pm: "npm" | "pnpm" | "yarn") => {
     const commands = {
-      npm: "npm install devark",
-      pnpm: "pnpm install devark",
-      yarn: "yarn add devark",
+      npm: "npm install devark@latest",
+      pnpm: "pnpm install devark@latest",
+      yarn: "yarn add devark@latest",
     };
     return commands[pm];
   };
