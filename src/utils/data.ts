@@ -1,3 +1,5 @@
+
+
 export const components = [
   {
     title: "Google OAuth Provider",
@@ -13,6 +15,16 @@ export const components = [
     title: "Github OAuth Provider",
     description: "Complete OAuth implementation with Github",
     command: "npx devark add github-oauth",
+  },
+  {
+    title:"Node.js and monogodb ", 
+     description: "Basic template with node.js and mongodb setup",
+    command: "npx devark add node-mongodb",
+  },
+  {
+    title:"Node.js and PostgreSQL with Prisma ", 
+     description: "Basic template with node.js and PostgreSQL with Prisma setup",
+    command: "npx devark add node-postgres-prisma",
   },
   {
     title: "JWT Manager",
