@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { Zap, Github, Menu } from "lucide-react";
+import { Zap, Github, Menu,  } from "lucide-react";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,11 +13,11 @@ export default function Header() {
 
       <div className="container mx-auto px-4 py-4 flex items-center justify-between relative z-10">
         {/* Logo */}
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-gradient-to-br from-white/20 to-white/10 rounded-md flex items-center justify-center ring-1 ring-white/10">
-            <Zap className="w-4 h-4 text-white" />
+        <div className="flex items-center gap-2 ring-1 ring-white/10 bg-black rounded-2xl px-5 py-2">
+          <div className="w-8 h-8 rounded-md flex items-center justify-center ">
+            <Zap className="w-6 h-6 text-slate-300" />
           </div>
-          <span className="font-bold text-xl text-white font-mono">Devark</span>
+          <span className="font-thin text-3xl text-white font-mono">DevArk</span>
         </div>
 
         {/* Desktop Nav */}
