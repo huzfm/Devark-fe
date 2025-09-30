@@ -1,6 +1,5 @@
 "use client";
 
-import TerminalBox from "./TerminalBox";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap } from "lucide-react";
 
@@ -87,9 +86,7 @@ export default function HeroSection() {
       </div>
 
       {/* Terminal */}
-      <div className="pt-20">
-        <TerminalBox />
-      </div>
+     
     </section>
   );
 }
