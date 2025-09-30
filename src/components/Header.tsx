@@ -13,11 +13,11 @@ export default function Header() {
 
       <div className="container mx-auto px-4 py-4 flex items-center justify-between relative z-10">
         {/* Logo */}
-        <div className="flex items-center gap-2 ring-1 ring-white/10 bg-black rounded-2xl px-5 py-2">
+       <div className="flex items-center gap-2 ring-1 ring-white/20 bg-black rounded-2xl px-2 py-2 text-white shadow-md shadow-blue-500/20 hover:shadow-blue-500/40 transition-all duration-300">
           <div className="w-8 h-8 rounded-md flex items-center justify-center ">
-            <Zap className="w-6 h-6 text-slate-300" />
+            <Zap className="w-6 h-6 text-slate-300 " />
           </div>
-          <span className="font-thin text-3xl text-white font-mono">DevArk</span>
+          <span className="font-extrabold sm:text-2xl lg:text-3xl text-white">DevArk</span>
         </div>
 
         {/* Desktop Nav */}
