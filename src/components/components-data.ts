@@ -98,7 +98,7 @@ export const availableComponents: CatalogItem[] = [
 // === COMING SOON MODULES ===
 export const comingSoonComponents: CatalogItem[] = [
   {
-    name: "Payments (Stripe)",
+    name: "Payments",
     pkg: "@devark/payments-stripe",
     description: "Seamless payments integration with Stripe API.",
     available: false,

@@ -23,11 +23,11 @@ export default function ComponentsSection() {
       />
       <div className="relative z-10 mx-auto container py-10 md:py-16">
         <header className="mb-6 flex flex-col items-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-black px-3 py-1">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-black px-3 py-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-            <span className="text-md text-white text-center">Components Catalog</span>
+            <span className="text-2xl text-white text-center">Components Catalog</span>
           </div>
-          <h2 id="components-title" className="mt-4 text-balance text-3xl md:text-4xl font-bold text-white text-center">
+          <h2 id="components-title" className="mt-4 text-balance text-3xl md:text-4xl font-bold text-white text-center py-5">
             Browse components and install with one command
           </h2>
           <p className="mt-2 text-white text-center leading-relaxed">
@@ -55,7 +55,9 @@ export default function ComponentsSection() {
                       <div className="flex items-center justify-between">
                         <span className="font-medium">{item.name}</span>
                         {/* <Badge variant="secondary" className="ml-2"> */}
-                        <span className="text-gray-400">ready</span>
+                        <div className="bg-white/10 rounded-2xl px-2 py-0.5 text-[12px] ">
+                        <span className="text-white">ready</span>
+                        </div>
                         {/* </Badge> */}
                       </div>
                       {item.description ? (
@@ -100,7 +102,20 @@ export default function ComponentsSection() {
           </aside>
 
           {/* Right: detail + terminal */}
-          <main className="rounded-lg border border-white/20 bg-black p-4 md:p-6">
+          <main className={`rounded-lg border border-white/20 bg-black p-4 md:p-6 relative ${
+            !selected.available ? 'opacity-50' : ''
+          }`}>
+            {!selected.available && (
+              <div className="absolute inset-0 z-10 backdrop-blur-sm flex items-center justify-center">
+                <div className="text-center">
+                  <div className="text-5xl md:text-6xl font-bold text-yellow-400 relative">
+                    <span className="absolute inset-0 animate-pulse bg-yellow-400/20 blur-[25px] rounded-full"></span>
+                    <span className="relative">Coming Soon</span>
+                  </div>
+                  <p className="text-gray-400 mt-4 text-lg md:text-xl max-w-md">This component is under development and will be available soon.</p>
+                </div>
+              </div>
+            )}
             {/* Header with Version and Status */}
             <div className="flex items-start justify-between gap-4">
               <div>
@@ -111,12 +126,17 @@ export default function ComponentsSection() {
                 <p className="text-sm text-gray-400 mt-1">{selected.description}</p>
               </div>
               <div className="flex flex-col items-end gap-2">
-                <span className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium
+                <span className={`relative inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium
                   ${selected.available 
                     ? 'bg-green-500/20 text-green-400 border border-green-500/30' 
                     : 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30'}`}>
                   <div className={`w-1.5 h-1.5 rounded-full ${selected.available ? 'bg-green-400' : 'bg-yellow-400'}`} />
-                  {selected.available ? 'Available' : 'Coming Soon'}
+                  {selected.available ? 'Available' : (
+                    <span className="relative">
+                      <span className="absolute inset-0 animate-pulse bg-yellow-400/20 blur-[8px] rounded-full"></span>
+                      <span className="relative ">Coming Soon</span>
+                    </span>
+                  )}
                 </span>
               </div>
             </div>
