@@ -1,34 +1,29 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { Zap, Github, Menu,  } from "lucide-react";
+import { Zap, Github, X, Menu ,Mail} from "lucide-react";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <header className="bg-black lg:px-25 md:px-20 sm:px-0 relative">
-      {/* Grid background lines */}
+      {/* Grid background */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:35px_35px]"></div>
 
       <div className="container mx-auto px-4 py-4 flex items-center justify-between relative z-10">
         {/* Logo */}
-       <div className="flex items-center gap-2 ring-1 ring-white/20 bg-black rounded-2xl px-2 py-2 text-white shadow-md shadow-blue-500/20 hover:shadow-blue-500/40 transition-all duration-300">
-          <div className="w-8 h-8 rounded-md flex items-center justify-center ">
-            <Zap className="w-6 h-6 text-slate-300 " />
+        <div className="flex items-center gap-2 ring-1 ring-white/20 bg-black rounded-2xl px-2 py-2 text-white shadow-md shadow-blue-500/20 hover:shadow-blue-500/40 transition-all duration-300">
+          <div className="w-8 h-8 rounded-md flex items-center justify-center">
+            <Zap className="w-6 h-6 text-slate-300" />
           </div>
-          <span className="font-extrabold sm:text-2xl lg:text-3xl text-white">DevArk</span>
+          <span className="font-extrabold sm:text-2xl lg:text-3xl text-white">
+            DevArk
+          </span>
         </div>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-6">
-          <Link
-            href="#components"
-            className="font-mono text-white font-semibold hover:text-gray-300 transition-colors duration-200 relative group"
-          >
-            Components
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
-          </Link>
           <Link
             href="https://github.com/huzfm/Devark/tree/master/documentation"
             target="_blank"
@@ -38,15 +33,50 @@ export default function Header() {
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300"></span>
           </Link>
 
-          {/* GitHub Button (desktop) */}
-          <Link
-            href="https://github.com/huzfm/Devark"
-            target="_blank"
-            className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-mono font-bold bg-black text-white border border-white/10 hover:bg-white/10 transition-all duration-300"
-          >
-            <Github className="w-4 h-4" />
-            GitHub
-          </Link>
+          {/* Grouped Buttons */}
+          <div className="flex items-center gap-2 border border-white/20 rounded-3xl p-1">
+           <Link
+              href="mailto:huzaaifmushtaq@gmail.com"
+              target="_blank"
+              className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-mono font-bold bg-black text-white hover:bg-white/10 transition-all duration-300"
+            >
+              <Mail className="w-4 h-4" />
+              
+            </Link>
+
+            <Link
+              href="https://github.com/huzfm/Devark"
+              target="_blank"
+              className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-mono font-bold bg-black text-white hover:bg-white/10 transition-all duration-300"
+            >
+              <Github className="w-4 h-4" />
+              
+            </Link>
+           
+            <Link
+              href="https://x.com/yourhandle"
+              target="_blank"
+              className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-md font-mono font-bold bg-black text-white hover:bg-white/10 transition-all duration-300"
+            >
+              X
+            </Link>
+
+            <Link
+              href="https://www.npmjs.com/package/devark"
+              target="_blank"
+              className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-mono font-bold bg-black text-white hover:bg-white/10 transition-all duration-300"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 576 512"
+                className="w-7 h-7"
+                fill="currentColor"
+              >
+                <path d="M288 288h-32v-64h32v64zm288-128v192H288v32H160v-32H0V160h576zm-416 32H32v128h64v-96h32v96h32V192zm160 0H192v160h64v-32h64V192zm224 0H352v128h64v-96h32v96h32v-96h32v96h32V192z" />
+              </svg>
+              
+            </Link>
+          </div>
         </nav>
 
         {/* Mobile Hamburger */}
@@ -55,20 +85,15 @@ export default function Header() {
           aria-label="Open menu"
           onClick={() => setMenuOpen((open) => !open)}
         >
-          <Menu className="w-6 h-6 text-white" />
+          {menuOpen ? <X className="w-6 h-6 text-white" /> : <Menu className="w-6 h-6 text-white" />}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {menuOpen && (
         <nav className="md:hidden bg-black/95 border-t border-white/10 px-4 py-4 flex flex-col gap-4">
-          <Link
-            href="#components"
-            className="font-mono text-white font-semibold hover:text-gray-300 transition-colors duration-200"
-            onClick={() => setMenuOpen(false)}
-          >
-            Components
-          </Link>
+         
+
           <Link
             href="https://github.com/huzfm/Devark/tree/master/documentation"
             target="_blank"
@@ -78,16 +103,41 @@ export default function Header() {
             Docs
           </Link>
 
-          {/* GitHub Button (mobile) */}
-          <Link
-            href="https://github.com/huzfm/Devark"
-            target="_blank"
-            className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-mono text-white border border-white/10 hover:bg-white/10 transition-all duration-300 w-fit"
-            onClick={() => setMenuOpen(false)}
-          >
-            <Github className="w-4 h-4" />
-            GitHub
-          </Link>
+          <div className="flex items-center gap-2 border border-white/20 rounded-lg p-1">
+            <Link
+              href="https://github.com/huzfm/Devark"
+              target="_blank"
+              className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-mono text-white hover:bg-white/10 transition-all duration-300 w-fit"
+              onClick={() => setMenuOpen(false)}
+            >
+              <Github className="w-4 h-4" />
+            </Link>
+
+            <Link
+              href="https://x.com/yourhandle"
+              target="_blank"
+              className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-mono text-white hover:bg-white/10 transition-all duration-300 w-fit"
+              onClick={() => setMenuOpen(false)}
+            >
+              X
+            </Link>
+
+            <Link
+              href="https://www.npmjs.com/package/devark"
+              target="_blank"
+              className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-mono text-white hover:bg-white/10 transition-all duration-300 w-fit"
+              onClick={() => setMenuOpen(false)}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 576 512"
+                className="w-4 h-4"
+                fill="currentColor"
+              >
+                <path d="M288 288h-32v-64h32v64zm288-128v192H288v32H160v-32H0V160h576zm-416 32H32v128h64v-96h32v96h32V192zm160 0H192v160h64v-32h64V192zm224 0H352v128h64v-96h32v96h32v-96h32v96h32V192z" />
+              </svg>
+            </Link>
+          </div>
         </nav>
       )}
     </header>

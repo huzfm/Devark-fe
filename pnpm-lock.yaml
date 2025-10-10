@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@fortawesome/react-fontawesome':
+        specifier: github:fortawesome/react-fontawesome
+        version: https://codeload.github.com/fortawesome/react-fontawesome/tar.gz/a7fb315a27a62f104fd52968834eb382db64d05b(@fortawesome/fontawesome-svg-core@7.1.0)(react@19.1.0)
       '@hookform/resolvers':
         specifier: ^3.10.0
         version: 3.10.0(react-hook-form@7.63.0(react@19.1.0))
@@ -362,6 +365,22 @@ packages:
 
   '@floating-ui/utils@0.2.10':
     resolution: {integrity: sha512-aGTxbpbg8/b5JfU1HXSrbH3wXZuLPJcNEcZQFMxLs3oSzgtVu6nFPkbbGGUvBcUjKV2YyB9Wxxabo+HEH9tcRQ==}
+
+  '@fortawesome/fontawesome-common-types@7.1.0':
+    resolution: {integrity: sha512-l/BQM7fYntsCI//du+6sEnHOP6a74UixFyOYUyz2DLMXKx+6DEhfR3F2NYGE45XH1JJuIamacb4IZs9S0ZOWLA==}
+    engines: {node: '>=6'}
+
+  '@fortawesome/fontawesome-svg-core@7.1.0':
+    resolution: {integrity: sha512-fNxRUk1KhjSbnbuBxlWSnBLKLBNun52ZBTcs22H/xEEzM6Ap81ZFTQ4bZBxVQGQgVY0xugKGoRcCbaKjLQ3XZA==}
+    engines: {node: '>=6'}
+
+  '@fortawesome/react-fontawesome@https://codeload.github.com/fortawesome/react-fontawesome/tar.gz/a7fb315a27a62f104fd52968834eb382db64d05b':
+    resolution: {tarball: https://codeload.github.com/fortawesome/react-fontawesome/tar.gz/a7fb315a27a62f104fd52968834eb382db64d05b}
+    version: 3.1.0
+    engines: {node: '>=20'}
+    peerDependencies:
+      '@fortawesome/fontawesome-svg-core': ~6 || ~7
+      react: ^18.0.0 || ^19.0.0
 
   '@hookform/resolvers@3.10.0':
     resolution: {integrity: sha512-79Dv+3mDF7i+2ajj7SkypSKHhl1cbln1OGavqrsF7p6mbUv11xpqpacPsGDCTRvCSjEEIez2ef1NveSVL3b0Ag==}
@@ -3401,6 +3420,17 @@ snapshots:
       react-dom: 19.1.0(react@19.1.0)
 
   '@floating-ui/utils@0.2.10': {}
+
+  '@fortawesome/fontawesome-common-types@7.1.0': {}
+
+  '@fortawesome/fontawesome-svg-core@7.1.0':
+    dependencies:
+      '@fortawesome/fontawesome-common-types': 7.1.0
+
+  '@fortawesome/react-fontawesome@https://codeload.github.com/fortawesome/react-fontawesome/tar.gz/a7fb315a27a62f104fd52968834eb382db64d05b(@fortawesome/fontawesome-svg-core@7.1.0)(react@19.1.0)':
+    dependencies:
+      '@fortawesome/fontawesome-svg-core': 7.1.0
+      react: 19.1.0
 
   '@hookform/resolvers@3.10.0(react-hook-form@7.63.0(react@19.1.0))':
     dependencies:
