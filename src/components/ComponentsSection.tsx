@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react"
 import { availableComponents, comingSoonComponents, type CatalogItem } from "./components-data"
+import { playRoboClick } from "../lib/click"
 import TerminalCommands from "./terminal-commands"
 
 export default function ComponentsSection() {
@@ -23,15 +24,15 @@ export default function ComponentsSection() {
       />
       <div className="relative z-10 mx-auto container py-10 md:py-16">
         <header className="mb-6 flex flex-col items-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-black px-3 py-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-            <span className="text-2xl text-white text-center">Components Catalog</span>
-          </div>
+                <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-black px-3 py-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  <span className="text-2xl text-white text-center">Components Catalog</span>
+                </div>
           <h2 id="components-title" className="mt-4 text-balance text-3xl md:text-4xl font-bold text-white text-center py-5">
             Browse components and install with one command
           </h2>
           <p className="mt-2 text-white text-center leading-relaxed">
-            Pick a component on the left. Installation commands for pnpm, yarn, and npm will appear on the right.
+            Pick a component and copy the installation commands for pnpm, yarn, and npm.
           </p>
         </header>
 
@@ -45,7 +46,10 @@ export default function ComponentsSection() {
                   <li key={item.name}>
                     <button
                       type="button"
-                      onClick={() => setSelected(item)}
+                      onClick={() => {
+                        playRoboClick()
+                        setSelected(item)
+                      }}
                       className={[
                         "w-full text-left px-3 py-2 rounded-md transition-colors text-white",
                         selected.name === item.name ? "bg-white/10" : "hover:bg-white/5",
@@ -69,8 +73,7 @@ export default function ComponentsSection() {
               </ul>
             </div>
 
-            {/* <Separator className="my-2" /> */}
-
+         
             <div className="p-4">
               <h3 className="text-sm font-semibold text-white">Coming soon</h3>
               <ul className="mt-3 space-y-1">
@@ -78,7 +81,10 @@ export default function ComponentsSection() {
                   <li key={item.name}>
                     <button
                       type="button"
-                      onClick={() => setSelected(item)}
+                      onClick={() => {
+                        playRoboClick()
+                        setSelected(item)
+                      }}
                       className={[
                         "w-full text-left px-3 py-2 rounded-md transition-colors text-gray-400",
                         "hover:bg-white/5",

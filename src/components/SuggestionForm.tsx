@@ -70,11 +70,11 @@ export default function SuggestionForm() {
       return;
     }
 
-    setSubmitState({ status: "submitting", message: "Sending..." });
+    setSubmitState({ status: "submitting", message: "" });
 
     try {
       const formDataToSend = new FormData();
-      formDataToSend.append("access_key", "YOUR_ACCESS_KEY_HERE");
+      formDataToSend.append("access_key", "6a608ecc-53a2-4ecf-9528-bfa5890a7563");
       formDataToSend.append("name", formData.name);
       formDataToSend.append("email", formData.email);
       formDataToSend.append("message", formData.message);
