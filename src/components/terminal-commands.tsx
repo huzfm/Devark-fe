@@ -7,7 +7,7 @@ type Props = {
   pkg: string
 }
 
-type PackageManager = "pnpm" | "npm" | "yarn" 
+type PackageManager = "pnpm" | "npm" | "bun" | "yarn" 
 
 function buildCommand(pkg: string, manager: PackageManager) {
   switch (manager) {
@@ -15,6 +15,8 @@ function buildCommand(pkg: string, manager: PackageManager) {
       return `pnpm dlx devark@latest add ${pkg}`
       case "npm":
         return `npx devark@latest add ${pkg}`
+      case "bun":
+        return `bunx --bun devark@latest add ${pkg}`
     case "yarn":
       return `yarn devark@latest add ${pkg}`
   }
@@ -38,7 +40,7 @@ export default function TerminalCommands({ pkg }: Props) {
   return (
     <div className="w-full space-y-4">
       <div className="flex gap-2">
-        {(["pnpm","npm","yarn"] as PackageManager[]).map((manager) => (
+        {(["pnpm","npm","bun","yarn"] as PackageManager[]).map((manager) => (
           <button
             key={manager}
             onClick={() => setSelectedManager(manager)}
