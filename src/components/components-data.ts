@@ -15,6 +15,21 @@ export type CatalogItem = {
 // === AVAILABLE MODULES ===
 export const availableComponents: CatalogItem[] = [
   {
+ name: "OAuth",
+    pkg: "oauth",
+    description: "Authenticate users with Third party providers.",
+    available: true,
+    version: "1.0.0",
+    features: [
+      "Google, Github sign-in with Passport.js",
+      "Session support with express-session",
+      "Secure callback handling"
+    ],
+    dependencies: [""],
+    requiredEnv: [],
+    // docsLink: "https://console.cloud.google.com/apis/credentials",
+  },
+  {
     name: "Google OAuth",
     pkg: "google-oauth",
     description: "Authenticate users with Gooogle in minutes.",
