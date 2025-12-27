@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     siteName: "BuildFast",
     images: [
       {
-        url: "/og-image.png",
+        url: "/metadata.png",
         width: 1200,
         height: 630,
         alt: "BuildFast - Backend Development Tool",
