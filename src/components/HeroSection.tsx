@@ -2,9 +2,19 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap } from "lucide-react";
-import NpmDownloads from "./npm"; // Make sure this component fetches npm downloads
+import NpmDownloads from "./npm"; 
 
 export default function HeroSection() {
+  const handleGetStarted = () => {
+    const componentsSection = document.getElementById("components");
+    if (componentsSection) {
+      componentsSection.scrollIntoView({ 
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+  };
+
   return (
     <section className="min-h-screen py-12 px-6 lg:px-12 relative bg-black overflow-hidden">
       {/* grid background */}
@@ -61,6 +71,7 @@ export default function HeroSection() {
           <div className="flex gap-4">
             <Button
               size="lg"
+              onClick={handleGetStarted}
               className="group px-8 py-4 bg-white/80 text-black font-extrabold rounded-xl hover:bg-white/100"
             >
               Get Started
