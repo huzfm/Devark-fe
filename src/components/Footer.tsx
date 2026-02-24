@@ -43,7 +43,7 @@ export default function Footer() {
             </Link>
 
             <Link
-              href="mailto:huzfm@example.com"
+              href="mailto:huzfm@proton.me.com"
               target="_blank"
               className="p-2 text-white/70 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-200"
             >
@@ -56,7 +56,7 @@ export default function Footer() {
             <p className="text-white/70 text-sm bg-white/5 backdrop-blur-sm border border-white/10 px-6 py-3 rounded-full shadow-lg shadow-black/50 hover:shadow-xl transition-all duration-300">
               Built by{" "}
               <a
-                href="http://huzfm.vercel.app"
+                href="http://huzfm.is-a.dev"
                 target="_blank"
                 className="text-white hover:text-gray-300 font-medium transition-colors duration-200"
                 rel="noreferrer"
