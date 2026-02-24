@@ -36,7 +36,7 @@ export default function Header() {
           {/* Grouped Buttons */}
           <div className="flex items-center gap-2 border border-white/20 rounded-3xl p-1">
             <Link
-              href="mailto:huzaaifmushtaq@gmail.com"
+              href="mailto:huzfm@proton.me"
               target="_blank"
               className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-mono font-bold bg-black text-white hover:bg-white/10 transition-all duration-300"
             >
